@@ -1,0 +1,49 @@
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: #F5F6FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+.check {
+    text-align: center;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+
+label {
+    font-size: 1rem;
+    color: #202224;
+    margin-bottom: 5px;
+    display: block;
+    text-align: left;
+}
+
+
+h2 {
+    font-size: 1.8rem;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #888;
+    margin-bottom: 30px;
+}
+
+
+@media (max-width: 600px) {
+    .login-box {
+        width: 90%;
+    }
+}
+
+
+
