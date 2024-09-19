@@ -92,14 +92,14 @@ const TeacherAddCourse = () => {
                 onChange={(e) => handleSlotChange(index, e)}
                 required
               >
-                <option value="">เลือกวัน</option>
-                <option value="Monday">Monday</option>
-                <option value="Tuesday">Tuesday</option>
-                <option value="Wednesday">Wednesday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday">Friday</option>
-                <option value="Saturday">Saturday</option>
-                <option value="Sunday">Sunday</option>
+              <option value="">เลือกวัน</option>
+              <option value="วันจันทร์">วันจันทร์</option>
+              <option value="วันอังคาร">วันอังคาร</option>
+              <option value="วันพุธ">วันพุธ</option>
+              <option value="วันพฤหัสบดี">วันพฤหัสบดี</option>
+              <option value="วันศุกร์">วันศุกร์</option>
+              <option value="วันเสาร์">วันเสาร์</option>
+              <option value="วันอาทิตย์">วันอาทิตย์</option>
               </select>
               <input
                 type="time"
