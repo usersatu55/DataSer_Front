@@ -16,6 +16,8 @@ const Login = () => {
       const response = await axios.post('http://localhost:3000/auth/login', {
         email,
         password
+      }, { 
+        withCredentials: true  
       });
 
       const { token, userType, user } = response.data;
@@ -28,7 +30,7 @@ const Login = () => {
         alert(`ยินดีต้อนรับ อาจารย์ ${user.first_name} ${user.last_name}`);
         navigate('/teachers');
       } else {
-        navigate('/login');
+        navigate('/');
       }
     } catch (err) {
       setError(err.response ? err.response.data.message : 'Login failed');
@@ -73,7 +75,7 @@ const Login = () => {
             <a href="#forgot" className="text-blue-400 ml-auto text-sm hover:underline">ลืมรหัสผ่าน?</a>
           </div>
           <button type="submit" className="w-full bg-[#4880FF] text-white py-2 rounded-md "> เข้าสู่ระบบ </button>
-          </form>
+        </form>
       </div>
     </div>
     </div>
