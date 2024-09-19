@@ -75,7 +75,7 @@ function AttenStat() {
       <div className="flex justify-center py-8">
         <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-bold text-center mb-6">
-            สถานะการเข้าเรียนล่าสุด
+            สถิติการเข้าเรียน
           </h1>
 
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg p-4">
@@ -128,7 +128,7 @@ function AttenStat() {
                       <td className="px-6 py-4">
                         {student.student_fname} {student.student_lname}
                       </td>
-                      {/* Each column for a different date */}
+                      
                       {[1, 8, 19, 30].map((date) => (
                         <td key={date} className="px-6 py-4 ">
                           {renderStatusCircle(student.status, index)}

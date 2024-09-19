@@ -9,7 +9,7 @@ function StdList() {
   const [courseName, setCourseName] = useState("");
   const [error, setError] = useState(null);
   const [status, setStatus] = useState("");
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAttendance = async () => {
@@ -20,10 +20,10 @@ function StdList() {
 
         if (response.data.Attendance.length > 0) {
           setAttendance(response.data.Attendance);
-          setCourseName(response.data.Attendance[1].course_name); 
+          setCourseName(response.data.Attendance[1].course_name);
         } else {
           setAttendance([]);
-          setCourseName(""); 
+          setCourseName("");
         }
       } catch (err) {
         console.error(err);
@@ -38,7 +38,6 @@ function StdList() {
     setStatus(e.target.value);
   };
 
- 
   const goToAttenStat = () => {
     navigate("/AttenStat", {
       state: {
@@ -59,10 +58,7 @@ function StdList() {
           </h1>
 
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <button
-              onClick={goToAttenStat} 
-              className="text-gray-900 underline"
-            >
+            <button onClick={goToAttenStat} className="text-gray-900 underline">
               สถิติการเข้าเรียน
             </button>
           </div>
@@ -140,7 +136,15 @@ function StdList() {
                         <td className="px-6 py-4">{time}</td>
                         <td className="px-6 py-4">{formattedDate}</td>
                         <td className="px-6 py-4">
-                          <span className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                          <span
+                            className={
+                              student.status === "เข้าเรียน"
+                                ? "bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300"
+                                : student.status === "ขาดเรียน"
+                                ? "bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300"
+                                : "bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-900 dark:text-gray-300"
+                            }
+                          >
                             {student.status}
                           </span>
                         </td>
