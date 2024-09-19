@@ -41,7 +41,7 @@ const TeacherAddCourse = () => {
   const handleSlotChange = (index, e) => {
     const { name, value } = e.target;
     const updatedTimeSlots = [...timeSlots];
-    updatedTimeSlots[index][name] = value; // อัปเดตช่องที่เปลี่ยนแปลง (day, start_time, end_time)
+    updatedTimeSlots[index][name] = value;
     setTimeSlots(updatedTimeSlots);
   };
 
@@ -51,7 +51,7 @@ const TeacherAddCourse = () => {
 
   const removeSlot = (index) => {
     const updatedTimeSlots = [...timeSlots];
-    updatedTimeSlots.splice(index, 1); // ลบ time slot ที่ไม่ต้องการ
+    updatedTimeSlots.splice(index, 1); 
     setTimeSlots(updatedTimeSlots);
   };
 

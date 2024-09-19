@@ -60,7 +60,7 @@ function TeacherList() {
                   <th scope="col" className="px-6 py-3">รหัสวิชา</th>
                   <th scope="col" className="px-6 py-3">ชื่อวิชา</th>
                   <th scope="col" className="px-6 py-3">วันและเวลาเรียน</th>
-                  <th scope="col" className="px-6 py-3">การกระทำ</th>
+                
                 </tr>
               </thead>
               <tbody>
