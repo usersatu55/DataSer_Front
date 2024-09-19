@@ -9,6 +9,7 @@ import CheckIn from './pages/checkin'
 import CourseList from './pages/CourseList'
 import TeacherAddCourse  from './pages/TeacherAddCourse';
 import CheckNameInRoll from './pages/CheckNameInRoll'
+import EnrolledStudentsList  from './pages/EnrolledStudentsList'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/checkin/:course_code" element={<CheckIn />} />
         <Route path="/CourseList/" element={<CourseList />} />
         <Route path="/checkinstatus/:course_code" element={<StdList/>} />
+        <Route path="/enrollments/:course_code" element={<EnrolledStudentsList />} />
         <Route path="/AttenStat" element={<AttenStat/>} />
         <Route path="/TeacherAddCourse/" element={<TeacherAddCourse/>} />
         <Route path="/CheckNameInRoll" element={<CheckNameInRoll/>} />
