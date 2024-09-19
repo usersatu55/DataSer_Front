@@ -21,7 +21,7 @@ function StdList() {
           params: { 
             course_code, 
             status, 
-            day: day || undefined, // ถ้าไม่ใส่ค่า ให้ส่ง undefined 
+            day: day || undefined, 
             month: month || undefined, 
             year: year || undefined 
           },
