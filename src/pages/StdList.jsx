@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; 
 import Navbar from "../components/NavbarTeacher";
 
 function StdList() {
@@ -21,15 +21,15 @@ function StdList() {
           params: { 
             course_code, 
             status, 
-            day: day || undefined, 
+            day: day || undefined, // ถ้าไม่ใส่ค่า ให้ส่ง undefined 
             month: month || undefined, 
             year: year || undefined 
           },
         });
-
+  
         if (response.data.Attendance.length > 0) {
           setAttendance(response.data.Attendance);
-          setCourseName(response.data.Attendance[0]?.course_name || "");
+          setCourseName(response.data.Attendance[1].course_name); 
         } else {
           setAttendance([]);
           setCourseName("");
@@ -39,9 +39,10 @@ function StdList() {
         setError("Failed to fetch attendance");
       }
     };
-
+  
     fetchAttendance();
   }, [course_code, status, day, month, year]);
+  
 
   const handleStatusChange = (e) => {
     setStatus(e.target.value);
