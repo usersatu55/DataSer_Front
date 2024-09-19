@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom"; // import useNavigate
+import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/NavbarTeacher";
 
 function StdList() {
@@ -9,21 +9,30 @@ function StdList() {
   const [courseName, setCourseName] = useState("");
   const [error, setError] = useState(null);
   const [status, setStatus] = useState("");
-  const navigate = useNavigate(); 
+  const [day, setDay] = useState("");
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAttendance = async () => {
       try {
         const response = await axios.get(`http://localhost:3000/atten/byc`, {
-          params: { course_code, status },
+          params: { 
+            course_code, 
+            status, 
+            day: day || undefined, 
+            month: month || undefined, 
+            year: year || undefined 
+          },
         });
 
         if (response.data.Attendance.length > 0) {
           setAttendance(response.data.Attendance);
-          setCourseName(response.data.Attendance[1].course_name); 
+          setCourseName(response.data.Attendance[0]?.course_name || "");
         } else {
           setAttendance([]);
-          setCourseName(""); 
+          setCourseName("");
         }
       } catch (err) {
         console.error(err);
@@ -32,13 +41,24 @@ function StdList() {
     };
 
     fetchAttendance();
-  }, [course_code, status]);
+  }, [course_code, status, day, month, year]);
 
   const handleStatusChange = (e) => {
     setStatus(e.target.value);
   };
 
- 
+  const handleDayChange = (e) => {
+    setDay(e.target.value);
+  };
+
+  const handleMonthChange = (e) => {
+    setMonth(e.target.value);
+  };
+
+  const handleYearChange = (e) => {
+    setYear(e.target.value);
+  };
+
   const goToAttenStat = () => {
     navigate("/AttenStat", {
       state: {
@@ -60,7 +80,7 @@ function StdList() {
 
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <button
-              onClick={goToAttenStat} 
+              onClick={goToAttenStat}
               className="text-gray-900 underline"
             >
               สถิติการเข้าเรียน
@@ -86,6 +106,30 @@ function StdList() {
                   <option value="เข้าเรียน">เข้าเรียน</option>
                   <option value="ขาดเรียน">ขาดเรียน</option>
                 </select>
+              </div>
+
+              <div>
+                <input
+                  type="text"
+                  placeholder="วัน"
+                  value={day}
+                  onChange={handleDayChange}
+                  className="border px-2 py-1 me-2"
+                />
+                <input
+                  type="text"
+                  placeholder="เดือน"
+                  value={month}
+                  onChange={handleMonthChange}
+                  className="border px-2 py-1 me-2"
+                />
+                <input
+                  type="text"
+                  placeholder="ปี พ.ศ."
+                  value={year}
+                  onChange={handleYearChange}
+                  className="border px-2 py-1 me-2"
+                />
               </div>
             </div>
 

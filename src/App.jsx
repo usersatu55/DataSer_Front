@@ -8,6 +8,7 @@ import AttenStat from './pages/AttenStat';
 import CheckIn from './pages/checkin'
 import CourseList from './pages/CourseList'
 import TeacherAddCourse  from './pages/TeacherAddCourse';
+import CheckNameInRoll from './pages/CheckNameInRoll'
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/checkinstatus/:course_code" element={<StdList/>} />
         <Route path="/AttenStat" element={<AttenStat/>} />
         <Route path="/TeacherAddCourse/" element={<TeacherAddCourse/>} />
+        <Route path="/CheckNameInRoll" element={<CheckNameInRoll/>} />
       </Routes>
     </Router>
   );
